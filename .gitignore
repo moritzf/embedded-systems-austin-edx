@@ -21,3 +21,4 @@
 docs/reference-projects/*
 # Misc
 *.pdf
+*.DS_Store
