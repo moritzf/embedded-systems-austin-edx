@@ -16,3 +16,9 @@
 *.exe
 *.out
 *.app
+
+# Directories
+docs/reference-projects/*
+
+# Misc
+*.pdf
