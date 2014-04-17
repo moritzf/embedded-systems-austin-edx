@@ -18,7 +18,7 @@
 *.app
 
 # Directories
-docs/reference-projects/*
+docs/*
 
 # Misc
 *.pdf
