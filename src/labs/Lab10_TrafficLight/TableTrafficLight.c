@@ -61,11 +61,11 @@ int main(void){
 		
 	
 	StateT FSM[9] = {
-	{0x31, 100, {GoW, GoW, WaitW, WaitW, WaitW, WaitW, WaitW, WaitW}},
-	{0x51, 50, {GoS, GoS, GoS, GoS, GoP, GoP, GoS, GoS}},
-	{0x85, 100, {GoS, WaitS, GoS, WaitS, WaitS, WaitS, WaitS, WaitS}},
-	{0x89, 50, {GoP, GoW, GoP, GoW, GoP, GoW, GoP, GoP}},
-	{0x92, 100, {WaitP1, WaitP1, WaitP1, WaitP1, GoP, WaitP1, WaitP1, WaitP1}},
+	{0x31, 200, {GoW, GoW, WaitW, WaitW, WaitW, WaitW, WaitW, WaitW}},
+	{0x51, 100, {GoS, GoS, GoS, GoS, GoP, GoP, GoS, GoS}},
+	{0x85, 200, {GoS, WaitS, GoS, WaitS, WaitS, WaitS, WaitS, WaitS}},
+	{0x89, 100, {GoP, GoW, GoP, GoW, GoP, GoW, GoP, GoP}},
+	{0x92, 200, {WaitP1, WaitP1, WaitP1, WaitP1, GoP, WaitP1, WaitP1, WaitP1}},
 	{0x90, 50, {WaitP2, WaitP2, WaitP2, WaitP2, WaitP2, WaitP2, WaitP2, WaitP2}},
 	{0x92, 50, {WaitP3, WaitP3, WaitP3, WaitP3, WaitP3, WaitP3, WaitP3, WaitP3}},
 	{0x90, 50, {WaitP4, WaitP4, WaitP4, WaitP4, WaitP4, WaitP4, WaitP4, WaitP4}},
@@ -110,7 +110,10 @@ void sysTickWait(unsigned long delay) { // delay is in 12.5 ns units
 }
 
 void delay10ms(unsigned long delay) {
-	sysTickWait(800000 * delay);
+	unsigned long i;
+	for(i = 0; i < delay; i++) {
+	sysTickWait(800000);
+	}
 }
 void portB_Init(void) {
 	SYSCTL_RCGC2_R |= 0x00000002;
