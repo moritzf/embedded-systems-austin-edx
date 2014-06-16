@@ -123,7 +123,11 @@ char character;
 // Output: none
 void UART_OutString(unsigned char buffer[]){
 // as part of Lab 11 implement this function
-
+	int index = 0;
+	while(buffer[index] != 0) {
+		UART_OutChar(buffer[index]);
+		index++;
+	}
 }
 
 unsigned char String[10];
@@ -140,7 +144,25 @@ unsigned char String[10];
 //10000 to "**** "  any value larger than 9999 converted to "**** "
 void UART_ConvertUDec(unsigned long n){
 // as part of Lab 11 implement this function
-  
+	int index = 3;
+	int i;
+	for(i = 0; i < 5; i++) {
+		String[i] = ' ';
+	}
+	if(n <= 9999) {
+		while(n >= 10) {
+			String[index] = (n % 10) + 0x30;
+			n = n / 10;
+			index--;
+		}
+		String[index] = (n % 10) + 0x30;
+		index--;
+	} else {
+		for(i = 0; i < 4; i++) {
+			String[i] = '*';
+		}
+	}
+	String[4] = ' ';
 }
 
 //-----------------------UART_OutUDec-----------------------
@@ -166,7 +188,34 @@ void UART_OutUDec(unsigned long n){
 //10000 to "*.*** cm"  any value larger than 9999 converted to "*.*** cm"
 void UART_ConvertDistance(unsigned long n){
 // as part of Lab 11 implement this function
-  
+	int index = 4;
+	int i;
+	if(n <= 9999) {
+	String[0] = '0';
+	String[1] = '.';
+	for(i = 2; i < 5; i++) {
+		String[i] = '0';
+	}
+	
+	while(n >= 10) {
+		if(index == 1) index--;
+		String[index] = (n % 10) + 0x30;
+			n = n / 10;
+			index--;
+	}
+	if(index == 1) index--;
+	String[index] = (n % 10) + 0x30;
+	index--;
+	} else {
+		String[0] = '*';
+		String[1] = '.';
+		for(i = 2; i < 5; i++) {
+			String[i] = '*';
+		}
+	}
+	String[5] = ' ';
+	String[6] = 'c';
+	String[7] = 'm';
 }
 
 //-----------------------UART_OutDistance-----------------------
