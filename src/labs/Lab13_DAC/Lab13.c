@@ -25,8 +25,14 @@ int main(void){ // Real Lab13
   Piano_Init();
   EnableInterrupts();  // enable after all initialization are done
   while(1){                
-// input from keys to select tone
-
+ //input from keys to select tone
+	switch(GPIO_PORTE_DATA_R & 0x0F) {
+		case 0x01: Sound_Play('C'); while((GPIO_PORTE_DATA_R & 0x0F) == 0x01) {} break;
+		case 0x02: Sound_Play('D'); while((GPIO_PORTE_DATA_R & 0x0F) == 0x02) {} break;
+		case 0x04: Sound_Play('E'); while((GPIO_PORTE_DATA_R & 0x0F) == 0x04) {} break;
+		case 0x08: Sound_Play('G'); while((GPIO_PORTE_DATA_R & 0x0F) == 0x08) {} break;
+		default: Sound_Off() ; while((GPIO_PORTE_DATA_R & 0x0F) == 0x00) {} break;
+	}
   }
             
 }

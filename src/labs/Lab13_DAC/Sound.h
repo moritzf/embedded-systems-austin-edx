@@ -5,6 +5,9 @@
 // Daniel Valvano, Jonathan Valvano
 // March 13, 2014
 
+// Constants
+#define TABLE_SIZE 32
+
 // **************Sound_Init*********************
 // Initialize Systick periodic interrupts
 // Also initializes DAC
@@ -27,3 +30,6 @@ void Sound_Tone(unsigned long period);
 // Output: none
 void Sound_Off(void);
 
+// input: note, e.g. A, B, C, D
+// Sets the period of the wave and stores data points in an array SineWave
+void Sound_Play(unsigned char);
