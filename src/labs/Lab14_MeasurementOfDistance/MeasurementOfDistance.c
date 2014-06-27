@@ -33,7 +33,14 @@
 #include "..//tm4c123gh6pm.h"
 #include "Nokia5110.h"
 #include "TExaS.h"
+#include "math.h"
+#define CEIL(a, b) (((a) / (b)) + (((a) % (b)) > 0 ? 1 : 0))
+// Calibration constants
+#define CALIB1 2
+#define CALIB2 0
+#define DEBUG_MONITOR GPIO_PORTF_DATA_R
 
+void Debug_Init(void);
 void EnableInterrupts(void);  // Enable interrupts
 
 unsigned char String[10];
@@ -49,17 +56,41 @@ unsigned long Flag;     // 1 means valid Distance, 0 means Distance is empty
 // Overflow and dropout should be considered 
 // Input: sample  12-bit ADC sample
 // Output: 32-bit distance (resolution 0.001cm)
+// Constant: 0.001
 unsigned long Convert(unsigned long sample){
-  return 0;  // replace this line with real code
+	Distance = CEIL(sample*2000, 4095);
+	return Distance;
 }
 
+//double round(double d)
+//{
+//  return floor(d + 0.5);
+//}
+// Debugging monitor initialization
+void Debug_Init(void) {
+	unsigned volatile delay;
+	SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOF;
+	delay = SYSCTL_RCGCGPIO_R;
+	GPIO_PORTF_DEN_R |= 0x02;
+	GPIO_PORTF_DIR_R |= 0x02;
+}
 // Initialize SysTick interrupts to trigger at 40 Hz, 25 ms
 void SysTick_Init(unsigned long period){
-
+	NVIC_ST_CTRL_R = 0; // 1) disable SysTick during setup
+	NVIC_ST_RELOAD_R = period - 1; // 2) maximum reload value
+	NVIC_SYS_PRI3_R = (NVIC_SYS_PRI3_R&0x00FFFFFF)|0x40000000; //priority 2
+	NVIC_ST_CURRENT_R = 0; // 3) any write to current clears it
+	NVIC_ST_CTRL_R = 0x07; // 4) enable SysTick with core clock
 }
 // executes every 25 ms, collects a sample, converts and stores in mailbox
-void SysTick_Handler(void){ 
-
+void SysTick_Handler(void){
+	int i;
+	for(i = 0; i < 2; i++) {
+	DEBUG_MONITOR ^= 0x02;
+	}
+	Convert(ADC0_In());
+	Flag = 1;
+	DEBUG_MONITOR ^= 0x02;
 }
 
 //-----------------------UART_ConvertDistance-----------------------
@@ -74,23 +105,52 @@ void SysTick_Handler(void){
 // 2210 to "2.210 cm"
 //10000 to "*.*** cm"  any value larger than 9999 converted to "*.*** cm"
 void UART_ConvertDistance(unsigned long n){
-// as part of Lab 11 you implemented this function
-
+	int index = 4;
+	int i;
+	if(n <= 9999) {
+	String[0] = '0';
+	String[1] = '.';
+	for(i = 2; i < 5; i++) {
+		String[i] = '0';
+	}
+	
+	while(n >= 10) {
+		if(index == 1) index--;
+		String[index] = (n % 10) + 0x30;
+			n = n / 10;
+			index--;
+	}
+	if(index == 1) index--;
+	String[index] = (n % 10) + 0x30;
+	index--;
+	} else {
+		String[0] = '*';
+		String[1] = '.';
+		for(i = 2; i < 5; i++) {
+			String[i] = '*';
+		}
+	}
+	String[5] = ' ';
+	String[6] = 'c';
+	String[7] = 'm';
 }
 int main(void){ 
-  volatile unsigned long delay;
-  TExaS_Init(ADC0_AIN1_PIN_PE2, SSI0_Real_Nokia5110_Scope);
-// initialize ADC0, channel 1, sequencer 3
-// initialize Nokia5110 LCD (optional)
-// initialize SysTick for 40 Hz interrupts
-// initialize profiling on PF1 (optional)
+   TExaS_Init(ADC0_AIN1_PIN_PE2, SSI0_Real_Nokia5110_Scope);
+	ADC0_Init(); // initialize ADC0, channel 1, sequencer 3
+	Nokia5110_Init(); // initialize Nokia5110 LCD (optional)
+	SysTick_Init(2000000); // initialize SysTick for 40 Hz interrupts
+	Debug_Init(); // initialize profiling on PF1 (optional)
                                     //    wait for clock to stabilize
-
   EnableInterrupts();
-// print a welcome message  (optional)
-  while(1){ 
-// read mailbox
-// output to Nokia5110 LCD (optional)
+	Nokia5110_OutString("LAB 14\0");
+  while(1){
+		Flag = 0;
+		while(Flag == 0) {};
+		UART_ConvertDistance(Distance);
+		Nokia5110_Clear();
+		Nokia5110_OutString("Distance:");
+		Nokia5110_SetCursor(0, 2);
+		Nokia5110_OutString(String);
   }
 }
 

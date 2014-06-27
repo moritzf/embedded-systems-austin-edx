@@ -34,7 +34,7 @@
 // Hardware
 // VIRTUAL_NOKIA=0 means LaunchPad connected to a real Nokia 5110 LCD
 // VIRTUAL_NOKIA=1 means LaunchPad connected to PC through debugging USB cable, TExaSdisplay running on PC with COM port open
-#define VIRTUAL_NOKIA 0
+#define VIRTUAL_NOKIA 1
 #if VIRTUAL_NOKIA
 
 

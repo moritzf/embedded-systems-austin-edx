@@ -1,0 +1,64 @@
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: ARM Compiler'
+"C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/include" -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+'Finished building: ../main.c'
+' '
+'Building file: ../tm4c123gh6pm_startup_ccs.c'
+'Invoking: ARM Compiler'
+"C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/include" -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="tm4c123gh6pm_startup_ccs.pp"  "../tm4c123gh6pm_startup_ccs.c"
+'Finished building: ../tm4c123gh6pm_startup_ccs.c'
+' '
+'Building target: stepper_control.out'
+'Invoking: ARM Linker'
+"C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"stepper_control.map" --heap_size=0 --stack_size=512 -i"C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/lib" -i"C:/Program Files/Code Composer Studio/ccsv6/tools/compiler/arm_5.1.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="stepper_control_linkInfo.xml" --rom_model -o "stepper_control.out"  "./tm4c123gh6pm_startup_ccs.obj" "./main.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 
+<Linking>
+'Finished building target: stepper_control.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project stepper_control ****
+
+"C:\\Program Files\\Code Composer Studio\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****

@@ -41,7 +41,7 @@
 // SSI0Clk       (Clk, pin 5) connected to PA2
 // 3.3V          (Vcc, pin 6) power
 // back light    (BL,  pin 7) not connected, consists of 4 white LEDs which draw ~80mA total
-// Ground        (Gnd, pin 8) ground
+// Ground        (Gnd, pi	n 8) ground
 
 // Red SparkFun Nokia 5110 (LCD-10168)
 // -----------------------------------

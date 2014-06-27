@@ -51,6 +51,18 @@
 // LED on PB4
 // LED on PB5
 
+// DESIGN
+// ------
+// H/W:
+// ADC: R-2R-Ladder (4-bit) on PCB
+// - 4 input pins
+// - 1 ouput
+// GND
+// -------------------------
+// S/W:
+// Section 15.2
+// Game: Space Invaders
+
 #include "..//tm4c123gh6pm.h"
 #include "Nokia5110.h"
 #include "Random.h"
