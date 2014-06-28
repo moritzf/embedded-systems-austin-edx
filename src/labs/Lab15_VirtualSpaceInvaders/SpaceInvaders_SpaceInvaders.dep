@@ -1,12 +1,19 @@
 Dependencies for Project 'SpaceInvaders', Target 'SpaceInvaders': (DO NOT MODIFY !)
-F (.\startup.s)(0x5197D70A)()
-F (.\random.s)(0x5349BE96)()
-F (.\SpaceInvaders.c)(0x5352610C)()
+F (.\startup.s)(0x5197D70A)(--cpu Cortex-M4 --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\random.s)(0x5349BE96)(--cpu Cortex-M4 --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary--list .\random.lst --xref -o .\random.o --depend .\random.d)
+F (.\SpaceInvaders.c)(0x53AC850E)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\spaceinvaders.o --omf_browse .\spaceinvaders.crf --depend .\spaceinvaders.d)
 I (..//tm4c123gh6pm.h)(0x51D45492)
 I (Nokia5110.h)(0x5343FF4E)
 I (Random.h)(0x52868852)
 I (TExaS.h)(0x5346537E)
-F (.\TExaS.c)(0x5346562E)()
+F (.\TExaS.c)(0x5346562E)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\texas.o --omf_browse .\texas.crf --depend .\texas.d)
 I (TExaS.h)(0x5346537E)
-F (.\VirtualNokia5110.c)(0x53AC66EC)()
+F (.\VirtualNokia5110.c)(0x53ADE6CD)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\virtualnokia5110.o --omf_browse .\virtualnokia5110.crf --depend .\virtualnokia5110.d)
 I (Nokia5110.h)(0x5343FF4E)
+F (.\SpaceInvaders_Tony_L.c)(0x53ADEFE9)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\spaceinvaders_tony_l.o --omf_browse .\spaceinvaders_tony_l.crf --depend .\spaceinvaders_tony_l.d)
+I (..//tm4c123gh6pm.h)(0x51D45492)
+I (Nokia5110.h)(0x5343FF4E)
+I (Random.h)(0x52868852)
+I (TExaS.h)(0x5346537E)
+I (Subfile1.c)(0x53ADF134)
+I (Subfile2.c)(0x53ADF138)

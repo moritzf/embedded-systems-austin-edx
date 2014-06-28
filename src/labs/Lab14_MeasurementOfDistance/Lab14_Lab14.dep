@@ -1,6 +1,6 @@
 Dependencies for Project 'Lab14', Target 'Lab14': (DO NOT MODIFY !)
 F (.\startup.s)(0x519A7C74)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\MeasurementOfDistance.c)(0x53AB1D4F)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\measurementofdistance.o --omf_browse .\measurementofdistance.crf --depend .\measurementofdistance.d)
+F (.\MeasurementOfDistance.c)(0x53AC6323)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Users\Moritz\Keil\ARM\RV31\INC-I C:\Users\Moritz\Keil\ARM\CMSIS\Include-I C:\Users\Moritz\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\measurementofdistance.o --omf_browse .\measurementofdistance.crf --depend .\measurementofdistance.d)
 I (ADC.h)(0x5343F998)
 I (..//tm4c123gh6pm.h)(0x51D45492)
 I (Nokia5110.h)(0x53411DF0)
